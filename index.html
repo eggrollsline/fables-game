@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undertow — a belief market</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101418'/%3E%3Cpath d='M4 20 Q10 14 16 20 T28 20' stroke='%23c9a227' stroke-width='2.5' fill='none'/%3E%3Cpath d='M4 26 Q10 20 16 26 T28 26' stroke='%237a8ca8' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="src/ui/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <div class="brand">
+        <h1>UNDERTOW</h1>
+        <span class="sub">Brack Harbor deals in belief</span>
+      </div>
+      <div id="meters"></div>
+      <div class="topbar-actions">
+        <button id="btn-retire" class="ghost" title="Requires wealth and time" hidden>Retire</button>
+        <button id="btn-endday">End Day <span id="day-label"></span></button>
+      </div>
+    </header>
+
+    <main id="columns">
+      <section id="col-claims" class="col">
+        <nav class="tabs" id="claims-tabs">
+          <button data-tab="market" class="active">Market</button>
+          <button data-tab="portfolio">Portfolio</button>
+          <button data-tab="street">The Street</button>
+        </nav>
+        <div id="claims-list" class="scroll"></div>
+      </section>
+
+      <section id="col-main" class="col">
+        <nav class="tabs" id="main-tabs">
+          <button data-tab="chronicle" class="active">Chronicle</button>
+          <button data-tab="network">Trust Network</button>
+          <button data-tab="debug">Debug</button>
+        </nav>
+        <div id="chronicle-view" class="scroll"></div>
+        <div id="network-view" hidden>
+          <div id="network-controls">
+            <select id="network-claim"></select>
+            <span class="hint">Node color = belief in the selected claim. Click a citizen to interrogate the math.</span>
+          </div>
+          <canvas id="network-canvas"></canvas>
+          <div id="npc-inspector" hidden></div>
+        </div>
+        <div id="debug-view" class="scroll" hidden></div>
+      </section>
+
+      <section id="col-city" class="col">
+        <h2 class="colhead">The Powers</h2>
+        <div id="factions-panel"></div>
+        <h2 class="colhead">Informants</h2>
+        <div id="informants-panel"></div>
+      </section>
+    </main>
+
+    <div id="toast" hidden></div>
+    <div id="modal-root" hidden></div>
+    <div id="ending-overlay" hidden></div>
+  </div>
+  <script type="module" src="src/ui/main.js"></script>
+</body>
+</html>
